@@ -5,7 +5,7 @@ import { ClerkProvider } from "@clerk/nextjs";
 import { GeistSans } from "geist/font/sans";
 import { extractRouterConfig } from "uploadthing/server";
 import { ourFileRouter } from "./api/uploadthing/core";
-import { TopNav } from "./_components/topnav";
+import { TopNav } from "./_components/TopNav";
 
 export const metadata = {
   title: "Gallery",
