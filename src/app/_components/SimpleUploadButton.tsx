@@ -70,7 +70,13 @@ export function SimpleUploadButton() {
     },
     onClientUploadComplete() {
       toast.dismiss('upload-begin');
-      toast("Upload complete");
+      toast(
+        <span className="dark:text-white">Upload Complete</span>,
+        {
+          id: "upload-complete",
+          className: "dark:bg-gray-800"
+        }
+      );
       router.refresh();
     }
   });
