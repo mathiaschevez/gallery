@@ -1,8 +1,7 @@
 import FullPageImageView from "~/common/FullPageImageView";
 import { Modal } from "./modal";
 
-
-export default async function PhotoModal({
+export default function PhotoModal({
   params: { id: photoId },
 }: {
   params: { id: string };
