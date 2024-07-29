@@ -6,10 +6,18 @@ import { and, eq } from 'drizzle-orm';
 import { redirect } from 'next/navigation';
 
 export async function getImages() {
+  const images = await db.query.images.findMany({
+    orderBy: (model, { desc }) => desc(model.id),
+  });
+  
+  return images;
+}
+
+export async function getMyImages() {
   const user = auth();
-
+  
   if (!user.userId) throw new Error('Unauthorized');
-
+  
   const images = await db.query.images.findMany({
     where: (model, { eq }) => eq(model.userId, user.userId),
     orderBy: (model, { desc }) => desc(model.id),
