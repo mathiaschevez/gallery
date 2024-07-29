@@ -7,7 +7,6 @@ export default async function FullPageImageView(props: { id: string }) {
   if (Number.isNaN(idAsNumber)) throw new Error("Invalid photo ID");
 
   const image = await getImage(idAsNumber);
-
   const uploaderInfo = await clerkClient.users.getUser(image.userId);
 
   return (
@@ -15,7 +14,7 @@ export default async function FullPageImageView(props: { id: string }) {
       <div className="flex-shrink flex justify-center items-center">
         <img src={image.url} className="object-contain" />
       </div>
-      <div className="w-48 flex flex-col flex-shrink-0 border-l">
+      <div className="w-72 flex flex-col flex-shrink-0 border-l ml-auto">
         <div className="text-lg border-b text-center p-2">{image.name}</div>
         <div className="flex flex-col p-2">
           <span>Uploaded By:</span>
@@ -29,7 +28,7 @@ export default async function FullPageImageView(props: { id: string }) {
           <form action={async () => {
               "use server";
 
-              await deleteImage(idAsNumber)
+              await deleteImage(idAsNumber);
             }}
           >
             <Button type="submit" variant="destructive">
