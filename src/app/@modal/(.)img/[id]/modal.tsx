@@ -6,7 +6,7 @@ export function Modal({ children }: { children: React.ReactNode }) {
   const router = useRouter();
   const pathname = usePathname();
 
-  return pathname === "/" ? null : (
+  return (pathname === "/" || pathname === "/my-images") ? null : (
     <div className="absolute top-0 w-screen h-screen bg-black/90 m-0 text-white">
       <button
         className="absolute top-4 left-4 text-white"
